@@ -1,18 +1,15 @@
-name: Laravel CI
+name: Project Diagnostics
 
 on: [push]
 
 jobs:
-  check:
+  inspect:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Display PHP Version
-      run: php -v
-      
-    - name: List Directory Contents
-      run: ls -la
-      
-    - name: Check Composer
-      run: composer --version
+    - name: Environment Check
+      run: |
+        pwd
+        php -v
+        composer -V
+        php -m
