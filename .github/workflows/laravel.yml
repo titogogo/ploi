@@ -1,4 +1,4 @@
-name: Code Quality Monitor
+name: Enhanced Quality Monitor
 
 on: [push]
 
@@ -10,11 +10,11 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Code Analysis
+    - name: Quality Metrics
       run: |
-        echo '=== Basic Stats ==='
-        ls -la
-        echo '=== File Count ==='
-        find . -type f | wc -l
-        echo '=== Recent Changes ==='
-        git log -5 --oneline
+        echo '=== Project Overview ==='
+        ls -R
+        echo '=== Code Structure ==='
+        find . -type d -maxdepth 2
+        echo '=== Git Stats ==='
+        git shortlog -sn
