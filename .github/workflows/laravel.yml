@@ -1,17 +1,16 @@
-name: Project Health Check
+name: Project Analysis
 
 on: [push]
 
 jobs:
-  check:
+  analyze:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
-    - name: Repository Analysis
+    - name: Project Stats
       run: |
-        echo '=== Project Overview ==='
-        ls -la
-        echo '=== Git Info ==='
-        git branch
-        git describe --tags || true
+        echo '=== Core Stats ==='
+        find . -type f -name '*.php' | wc -l
+        echo '=== Latest Changes ==='
+        git log -3 --oneline
