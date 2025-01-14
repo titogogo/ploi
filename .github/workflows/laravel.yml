@@ -1,4 +1,4 @@
-name: Code Quality Monitor
+name: Test Coverage Monitor
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Code Analysis
+    - name: Test Analysis
       run: |
-        echo '=== Code Metrics ==='
-        find . -type f -name '*.php' -exec wc -l {} \;
-        echo '=== File Structure ==='
-        find . -type f -name '*.php' -exec dirname {} \; | sort | uniq -c
-        echo '=== Recent Changes ==='
-        git diff --stat HEAD~1
+        echo '=== Test Files ==='
+        find . -type f -name '*Test.php' | wc -l
+        echo '=== Test Structure ==='
+        find . -type f -name '*Test.php' -exec dirname {} \; | sort | uniq -c
+        echo '=== Test Coverage ==='
+        find . -type f -name '*.php' | grep -v 'Test.php' | wc -l
