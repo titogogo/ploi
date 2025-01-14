@@ -8,9 +8,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Basic Check
+    - name: Repository Analysis
       run: |
-        echo '=== Repository Status ==='
-        git status
-        echo '=== File Count ==='
-        find . -type f | wc -l
+        echo '=== Project Overview ==='
+        ls -la
+        echo '=== Git Info ==='
+        git branch
+        git describe --tags || true
