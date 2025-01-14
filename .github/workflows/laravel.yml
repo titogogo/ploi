@@ -1,4 +1,4 @@
-name: Performance Analytics
+name: System Analytics
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Performance Check
+    - name: System Analysis
       run: |
-        echo '=== Code Metrics ==='
-        find . -type f -name '*.php' -exec du -h {} \;
-        echo '=== Memory Usage ==='
-        free -m
-        echo '=== Disk Space ==='
-        df -h
+        echo '=== System Load ==='
+        uptime
+        echo '=== Process Stats ==='
+        ps aux | head -5
+        echo '=== Network Info ==='
+        netstat -i || true
