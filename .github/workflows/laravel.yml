@@ -1,4 +1,4 @@
-name: IO Monitor
+name: Network Monitor
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: IO Analysis
+    - name: Network Analysis
       run: |
-        echo '=== Disk Stats ==='
-        iostat || true
-        echo '=== File Operations ==='
-        lsof || true
-        echo '=== Block Devices ==='
-        lsblk
+        echo '=== Network Stats ==='
+        ifconfig || ip addr
+        echo '=== Connection Status ==='
+        ss -tuln
+        echo '=== Route Table ==='
+        netstat -r
