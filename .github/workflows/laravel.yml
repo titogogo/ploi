@@ -1,21 +1,16 @@
-name: Project Diagnostics
+name: Project Health Check
 
 on: [push]
 
 jobs:
-  inspect:
+  check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
-    - name: System Check
+    - name: Quick Stats
       run: |
-        echo '=== System Info ==='
-        date
-        whoami
-        
-    - name: File Analysis
-      run: |
-        echo '=== Project Stats ==='
-        ls -R
-        find . -maxdepth 3
+        echo '=== Quick Project Stats ==='
+        ls -l
+        echo '=== Directory Tree ==='
+        tree || true
