@@ -1,18 +1,18 @@
-name: Memory Analysis
+name: IO Monitor
 
 on: [push]
 
 jobs:
-  analyze:
+  monitor:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
-    - name: Memory Check
+    - name: IO Analysis
       run: |
-        echo '=== Memory Stats ==='
-        vmstat
-        echo '=== Cache Info ==='
-        cat /proc/meminfo || true
-        echo '=== Process Memory ==='
-        top -b -n 1
+        echo '=== Disk Stats ==='
+        iostat || true
+        echo '=== File Operations ==='
+        lsof || true
+        echo '=== Block Devices ==='
+        lsblk
