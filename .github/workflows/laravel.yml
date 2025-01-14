@@ -1,18 +1,20 @@
-name: System Analytics
+name: Code Quality Monitor
 
 on: [push]
 
 jobs:
-  analyze:
+  monitor:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
     
-    - name: System Metrics
+    - name: Code Analysis
       run: |
-        echo '=== Hardware Info ==='
-        lscpu
-        echo '=== Storage Analysis ==='
-        du -sh *
-        echo '=== Network Status ==='
-        netstat -i
+        echo '=== Basic Stats ==='
+        ls -la
+        echo '=== File Count ==='
+        find . -type f | wc -l
+        echo '=== Recent Changes ==='
+        git log -5 --oneline
