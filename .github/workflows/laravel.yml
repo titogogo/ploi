@@ -1,18 +1,18 @@
-name: System Analytics
+name: Resource Monitor
 
 on: [push]
 
 jobs:
-  analyze:
+  monitor:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
-    - name: System Analysis
+    - name: Resource Check
       run: |
-        echo '=== System Load ==='
-        uptime
-        echo '=== Process Stats ==='
-        ps aux | head -5
-        echo '=== Network Info ==='
-        netstat -i || true
+        echo '=== CPU Info ==='
+        lscpu
+        echo '=== Storage Stats ==='
+        du -sh *
+        echo '=== System Overview ==='
+        uname -a
