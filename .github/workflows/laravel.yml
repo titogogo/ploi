@@ -1,18 +1,18 @@
-name: Performance Benchmark
+name: Resource Monitor
 
 on: [push]
 
 jobs:
-  benchmark:
+  monitor:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
-    - name: Performance Analysis
+    - name: Resource Analysis
       run: |
-        echo '=== Response Time ==='
-        time find . -type f
-        echo '=== Memory Usage ==='
-        free -h
-        echo '=== Load Average ==='
-        uptime
+        echo '=== CPU Stats ==='
+        top -b -n 1
+        echo '=== Disk Usage ==='
+        df -h
+        echo '=== Process Count ==='
+        ps aux | wc -l
