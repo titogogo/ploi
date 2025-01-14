@@ -1,0 +1,24 @@
+[23-Mar-2024 16:27:59 UTC] PHP Warning:  require(C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[23-Mar-2024 16:27:59 UTC] PHP Warning:  require(C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[23-Mar-2024 16:27:59 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\Vincent\Code\sendroid\public\index.php:13
+Stack trace:
+#0 C:\Users\Vincent\AppData\Roaming\Composer\vendor\cretueusebiu\valet-windows\server.php(241): require()
+#1 {main}
+  thrown in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[23-Mar-2024 16:51:11 UTC] PHP Warning:  require(C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[23-Mar-2024 16:51:11 UTC] PHP Warning:  require(C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[23-Mar-2024 16:51:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\Vincent\Code\sendroid\public\index.php:13
+Stack trace:
+#0 C:\Users\Vincent\AppData\Roaming\Composer\vendor\cretueusebiu\valet-windows\server.php(241): require()
+#1 {main}
+  thrown in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[26-Mar-2024 15:45:56 UTC] PHP Warning:  require(C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[26-Mar-2024 15:45:56 UTC] PHP Warning:  require(C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[26-Mar-2024 15:45:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\Vincent\Code\sendroid\public/../vendor/autoload.php' (include_path='.;C:\php\pear') in C:\Users\Vincent\Code\sendroid\public\index.php:13
+Stack trace:
+#0 C:\Users\Vincent\AppData\Roaming\Composer\vendor\cretueusebiu\valet-windows\server.php(241): require()
+#1 {main}
+  thrown in C:\Users\Vincent\Code\sendroid\public\index.php on line 13
+[02-Apr-2024 23:24:13 UTC] PHP Fatal error:  'continue' not in the 'loop' or 'switch' context in C:\Users\Vincent\Code\sendroid\app\Services\CountriesService.php on line 26
+[02-Apr-2024 23:24:13 UTC] PHP Fatal error:  'continue' not in the 'loop' or 'switch' context in C:\Users\Vincent\Code\sendroid\app\Services\CountriesService.php on line 26
+[08-Apr-2024 09:34:59 UTC] PHP Fatal error:  Trait "Octopy\Impersonate\Concerns\HasImpersonation" not found in C:\Users\Vincent\Code\sendroid\app\Models\User.php on line 17

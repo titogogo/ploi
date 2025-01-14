@@ -1,0 +1,377 @@
+
+.floating-man {
+    width: 350px
+}
+
+.fadeIn1 {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s
+}
+
+.fadeIn2 {
+    -webkit-animation-duration: 1.75s;
+    animation-duration: 1.75s
+}
+
+.fadeIn3 {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s
+}
+
+.fadeIn4 {
+    -webkit-animation-duration: 2.25s;
+    animation-duration: 2.25s
+}
+
+.fadeIn5 {
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s
+}
+
+.fadeIn1,.fadeIn2,.fadeIn3,.fadeIn4,.fadeIn5 {
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.fadeInBottom {
+    -webkit-animation-name: fadeInBottom;
+    animation-name: fadeInBottom
+}
+
+@-webkit-keyframes fadeInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100%)
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100%)
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.header-rounded-images .shape-1 {
+    width: 55%;
+    left: 15%
+}
+
+.header-rounded-images .shape-2 {
+    width: 35%;
+    left: 20%
+}
+
+.header-rounded-images .shape-3 {
+    width: 50%;
+    margin-top: -28rem
+}
+
+.header-rounded-images .img-1 {
+    right: 7%;
+    width: 36%;
+    margin-top: 12%
+}
+
+.header-rounded-images .img-2 {
+    left: 24%;
+    width: 27%;
+    margin-top: 10%
+}
+
+.checklist-item:before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: .25rem
+}
+
+.checklist-item-primary:before,.checklist-item:before {
+    background-color: #cb0c9f
+}
+
+.checklist-item-secondary:before {
+    background-color: #8392ab
+}
+
+.checklist-item-success:before {
+    background-color: #82d616
+}
+
+.checklist-item-info:before {
+    background-color: #17c1e8
+}
+
+.checklist-item-warning:before {
+    background-color: #fbcf33
+}
+
+.checklist-item-danger:before {
+    background-color: #ea0606
+}
+
+.checklist-item-light:before {
+    background-color: #e9ecef
+}
+
+.checklist-item-dark:before {
+    background-color: #344767
+}
+
+.checklist-item-white:before {
+    background-color: #fff
+}
+
+.change-perspective {
+    transform: scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg)
+}
+
+.change-perspective-inverse {
+    transform: scale(1) perspective(1040px) rotateY(11deg) rotateX(-2deg) rotate(-2deg)
+}
+
+.device-wrapper {
+    border-radius: 3.5rem;
+    box-shadow: 0 12px 15px rgba(140,152,164,.1)
+}
+
+.rotate-caret .collapse .nav-link:after {
+    margin-right: auto;
+    margin-left: 0
+}
+
+.z-index2 {
+    z-index: 2
+}
+
+@-webkit-keyframes gradient {
+    0% {
+        background-position: 0 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    to {
+        background-position: 0 50%
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    to {
+        background-position: 0 50%
+    }
+}
+
+.colored-shadow {
+    transform: scale(.94);
+    top: 3.5%;
+    filter: blur(12px);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: -1
+}
+
+.colored-shadow.avatar-xs {
+    transform: scale(.87);
+    width: 24px;
+    height: 24px
+}
+
+.colored-shadow.avatar-sm {
+    transform: scale(.87);
+    width: 36px;
+    height: 36px
+}
+
+.colored-shadow.avatar-lg {
+    transform: scale(.87);
+    width: 58px;
+    height: 58px
+}
+
+.colored-shadow.avatar-xl {
+    transform: scale(.87);
+    width: 74px;
+    height: 74px
+}
+
+.colored-shadow.avatar-xxl {
+    transform: scale(.87);
+    width: 110px;
+    height: 110px
+}
+
+.width-32-px {
+    width: 32px
+}
+
+.width-48-px {
+    width: 48px
+}
+
+.width-64-px {
+    width: 64px
+}
+
+.animated-blur {
+    filter: blur(40px)
+}
+
+.animated-blur-1 {
+    -webkit-animation: animation-blur-one 8s infinite;
+    animation: animation-blur-one 8s infinite
+}
+
+.animated-blur-2 {
+    -webkit-animation: animation-blur-one 4s infinite;
+    animation: animation-blur-one 4s infinite
+}
+
+.animated-blur-3 {
+    -webkit-animation: animation-blur-two 6s infinite;
+    animation: animation-blur-two 6s infinite
+}
+
+.animated-blur-4 {
+    -webkit-animation: animation-blur-two 5s infinite;
+    animation: animation-blur-two 5s infinite
+}
+
+@-webkit-keyframes animation-blur-one {
+    0% {
+        transform: scale(.8)
+    }
+
+    25% {
+        transform: translateX(10%)
+    }
+
+    50% {
+        transform: scale(1.2)
+    }
+
+    75% {
+        transform: translateX(5%)
+    }
+
+    to {
+        transform: scale(.8)
+    }
+}
+
+@keyframes animation-blur-one {
+    0% {
+        transform: scale(.8)
+    }
+
+    25% {
+        transform: translateX(10%)
+    }
+
+    50% {
+        transform: scale(1.2)
+    }
+
+    75% {
+        transform: translateX(5%)
+    }
+
+    to {
+        transform: scale(.8)
+    }
+}
+
+@-webkit-keyframes animation-blur-two {
+    0% {
+        transform: scale(1.2)
+    }
+
+    50% {
+        transform: scale(.8)
+    }
+
+    to {
+        transform: scale(1.2)
+    }
+}
+
+@keyframes animation-blur-two {
+    0% {
+        transform: scale(1.2)
+    }
+
+    50% {
+        transform: scale(.8)
+    }
+
+    to {
+        transform: scale(1.2)
+    }
+}
+
+.text-border:after,.text-border:before {
+    content: "";
+    display: inline-block;
+    width: 30%;
+    height: 1px;
+    position: relative;
+    vertical-align: middle
+}
+
+.text-border:after {
+    background: linear-gradient(90deg,hsla(0,0%,45.9%,.4),hsla(0,0%,45.9%,.4),transparent)
+}
+
+.text-border:before {
+    background: linear-gradient(90deg,transparent,hsla(0,0%,45.9%,.4),hsla(0,0%,45.9%,.4));
+    right: .5em;
+    margin-left: -50%
+}
+
+.text-border:after {
+    left: .5em;
+    margin-right: -50%
+}
+
+a[data-scroll] {
+    border-radius: .5rem
+}
+
+a[data-scroll]:hover {
+    background: #e9ecef;
+    color: #344767
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}

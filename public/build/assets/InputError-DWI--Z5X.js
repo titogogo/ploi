@@ -1,0 +1,1 @@
+import{j as s,Y as t,o as a,e as r,a as o,t as n}from"./app-DYrR7Grp.js";const c={class:"text-sm text-danger"},p={__name:"InputError",props:{message:String},setup(e){return(i,m)=>s((a(),r("div",null,[o("p",c,n(e.message),1)],512)),[[t,e.message]])}};export{p as _};

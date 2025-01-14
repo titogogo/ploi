@@ -1,0 +1,62 @@
+{
+    "name": "timacdonald/json-api",
+    "description": "A Lightweight JSON:API Resource for Laravel",
+    "keywords": [
+        "laravel",
+        "json",
+        "api",
+        "resource",
+        "JSON-API"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim MacDonald",
+            "email": "hello@timacdonald.me",
+            "homepage": "https://timacdonald.me"
+        }
+    ],
+    "require": {
+        "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
+        "illuminate/collections": "^9.0 || ^10.0 || ^11.0",
+        "illuminate/database": "^9.0 || ^10.0 || ^11.0",
+        "illuminate/http": "^9.0 || ^10.0 || ^11.0",
+        "illuminate/support": "^9.0 || ^10.0 || ^11.0",
+        "symfony/http-kernel": "^6.0 || ^7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.13",
+        "laravel/framework": "^9.0 || ^10.0 || ^11.0",
+        "opis/json-schema": "^2.3",
+        "orchestra/testbench": "^7.0 || ^8.0 || ^9.0",
+        "phpunit/phpunit": "^9.0 || ^10.5"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "TiMacDonald\\JsonApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "fix": "./vendor/bin/php-cs-fixer fix"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/timacdonald/json-api/issues",
+        "source": "https://github.com/timacdonald/json-api/releases/latest",
+        "docs": "https://github.com/timacdonald/json-api/blob/master/readme.md"
+    }
+}

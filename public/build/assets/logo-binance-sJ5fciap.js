@@ -1,0 +1,1 @@
+const s="/build/assets/logo-revolut-7UllzuKf.svg",o="/build/assets/logo-paypal-Ccgu-_e1.svg",l="/build/assets/logo-skrill-OGTBe05c.svg",t="/build/assets/logo-binance-DTV15iAf.svg";export{s as _,o as a,l as b,t as c};
