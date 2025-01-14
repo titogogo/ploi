@@ -8,14 +8,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Environment Info
+    - name: System Check
       run: |
-        echo 'Environment Details:'
-        uname -a
-        pwd
+        echo '=== System Info ==='
+        date
+        whoami
         
-    - name: Project Stats
+    - name: File Analysis
       run: |
-        echo 'Project Analysis:'
-        find . -type f | wc -l
-        du -sh .
+        echo '=== Project Stats ==='
+        ls -R
+        find . -maxdepth 3
