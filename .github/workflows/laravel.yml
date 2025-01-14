@@ -8,13 +8,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Basic Checks
+    - name: Environment Info
       run: |
-        echo 'Starting diagnostics...'
+        echo 'Environment Details:'
+        uname -a
         pwd
-        ls -la
         
-    - name: Repository Info
+    - name: Project Stats
       run: |
-        git branch
-        git log -1
+        echo 'Project Analysis:'
+        find . -type f | wc -l
+        du -sh .
