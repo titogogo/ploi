@@ -1,4 +1,4 @@
-name: Network Monitor
+name: Security Monitor
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Network Analysis
+    - name: Security Check
       run: |
-        echo '=== Network Stats ==='
-        ifconfig || ip addr
-        echo '=== Connection Status ==='
-        ss -tuln
-        echo '=== Route Table ==='
-        netstat -r
+        echo '=== File Permissions ==='
+        ls -la
+        echo '=== User Sessions ==='
+        who || true
+        echo '=== Open Ports ==='
+        netstat -tulpn || true
