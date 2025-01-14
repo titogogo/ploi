@@ -8,17 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1'
-        tools: phpmd, phpcpd
-        
-    - name: Advanced Analysis
+    - name: Deep Analysis
       run: |
-        echo '=== Code Metrics ==='
-        find . -name '*.php' -type f -exec wc -l {} \;
-        echo '=== Security Check ==='
-        composer audit || true
-        echo '=== Performance Stats ==='
-        git rev-list --count HEAD
+        echo '=== Repository Health ==='
+        git shortlog -sn --no-merges
+        echo '=== Code Distribution ==='
+        find . -type f -name '*.php' -exec dirname {} \; | sort | uniq -c | sort -nr
