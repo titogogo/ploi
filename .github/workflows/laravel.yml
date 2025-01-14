@@ -8,9 +8,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Quick Stats
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+    
+    - name: Project Analysis
       run: |
-        echo '=== Quick Project Stats ==='
+        echo '=== PHP Info ==='
+        php -v
+        echo '=== Project Structure ==='
         ls -l
-        echo '=== Directory Tree ==='
-        tree || true
+        echo '=== Composer Check ==='
+        composer validate || true
