@@ -1,4 +1,4 @@
-name: Advanced Metrics Monitor
+name: Dependency Monitor
 
 on: [push]
 
@@ -10,11 +10,11 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Advanced Analysis
+    - name: Dependency Analysis
       run: |
-        echo '=== Repository Stats ==='
-        git rev-list --count HEAD
-        echo '=== File Analysis ==='
-        find . -type f -exec file {} \;
-        echo '=== Commit History ==='
-        git log --graph --oneline -10
+        echo '=== Package Check ==='
+        find . -name 'composer.json'
+        echo '=== Asset Analysis ==='
+        find . -type f -name '*.js' -o -name '*.css'
+        echo '=== Build Files ==='
+        find . -type f -name '*.lock'
