@@ -1,4 +1,4 @@
-name: Dependency Monitor
+name: Code Quality Monitor
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Dependency Check
+    - name: Code Analysis
       run: |
-        echo '=== Package Stats ==='
-        find . -name 'composer.json' -o -name 'package.json'
-        echo '=== File Types ==='
-        find . -type f | grep -E '\.(php|js|css|json)$' | sort
-        echo '=== Directory Structure ==='
-        tree -L 2 || ls -R
+        echo '=== Code Metrics ==='
+        find . -type f -name '*.php' -exec wc -l {} \;
+        echo '=== File Structure ==='
+        find . -type f -name '*.php' -exec dirname {} \; | sort | uniq -c
+        echo '=== Recent Changes ==='
+        git diff --stat HEAD~1
