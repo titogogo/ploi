@@ -8,21 +8,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1'
-    
-    - name: System Checks
+    - name: Basic System Info
       run: |
-        php -v
-        composer -V
-        php -m
-        df -h
-        free -m
-        
-    - name: Project Structure
-      run: |
-        ls -la
+        uname -a
         pwd
         whoami
+        
+    - name: Directory Structure
+      run: |
+        ls -la
+        tree -L 2 || true
