@@ -8,13 +8,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Basic System Info
+    - name: System Information
       run: |
         uname -a
         pwd
         whoami
+        df -h
         
-    - name: Directory Structure
+    - name: Project Analysis
       run: |
         ls -la
-        tree -L 2 || true
+        find . -type f -name '*.php' | wc -l
+        git status
