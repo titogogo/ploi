@@ -20,10 +20,9 @@ jobs:
         php -m
         df -h
         free -m
-        php -i
         
-    - name: Project Checks
+    - name: Project Structure
       run: |
         ls -la
-        cat composer.json
-        php artisan --version
+        pwd
+        whoami
