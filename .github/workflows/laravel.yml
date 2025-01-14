@@ -8,16 +8,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1'
-    
-    - name: Project Analysis
+    - name: Basic Check
       run: |
-        echo '=== PHP Info ==='
-        php -v
-        echo '=== Project Structure ==='
-        ls -l
-        echo '=== Composer Check ==='
-        composer validate || true
+        echo '=== Repository Status ==='
+        git status
+        echo '=== File Count ==='
+        find . -type f | wc -l
