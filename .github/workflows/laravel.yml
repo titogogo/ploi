@@ -1,4 +1,4 @@
-name: Enhanced Quality Monitor
+name: Advanced Metrics Monitor
 
 on: [push]
 
@@ -10,11 +10,11 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Quality Metrics
+    - name: Advanced Analysis
       run: |
-        echo '=== Project Overview ==='
-        ls -R
-        echo '=== Code Structure ==='
-        find . -type d -maxdepth 2
-        echo '=== Git Stats ==='
-        git shortlog -sn
+        echo '=== Repository Stats ==='
+        git rev-list --count HEAD
+        echo '=== File Analysis ==='
+        find . -type f -exec file {} \;
+        echo '=== Commit History ==='
+        git log --graph --oneline -10
