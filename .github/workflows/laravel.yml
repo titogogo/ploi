@@ -9,38 +9,33 @@ on:
 jobs:
   laravel-tests:
     runs-on: ubuntu-latest
-    
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_DATABASE: laravel
-          MYSQL_USER: user
-          MYSQL_PASSWORD: secret
-          MYSQL_ROOT_PASSWORD: secret
-        ports:
-          - 3306:3306
-        options: --health-cmd='mysqladmin ping' --health-interval=10s --health-timeout=5s --health-retries=3
-
     steps:
-    - uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1'
-        extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql, zip
-    
     - uses: actions/checkout@v2
     
-    - name: Copy .env
-      run: cp .env.example .env
-    
-    - name: Install Composer Dependencies
-      run: composer install --prefer-dist --no-interaction --no-progress
-    
-    - name: Generate Application Key
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
+        coverage: none
+        
+    - name: Install Dependencies
+      run: |
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
+        composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+        chmod -R 777 storage bootstrap/cache
+        
+    - name: Generate key
       run: php artisan key:generate
-    
-    - name: Run Migrations
-      run: php artisan migrate --force
-    
-    - name: Run Tests
-      run: php artisan test
+        
+    - name: Create SQLite Database
+      run: |
+        mkdir -p database
+        touch database/database.sqlite
+        php artisan migrate --force
+        
+    - name: Execute tests via PHPUnit
+      env:
+        DB_CONNECTION: sqlite
+        DB_DATABASE: database/database.sqlite
+      run: vendor/bin/phpunit
