@@ -8,15 +8,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: System Information
+    - name: Basic Checks
       run: |
-        uname -a
+        echo 'Starting diagnostics...'
         pwd
-        whoami
-        df -h
-        
-    - name: Project Analysis
-      run: |
         ls -la
-        find . -type f -name '*.php' | wc -l
-        git status
+        
+    - name: Repository Info
+      run: |
+        git branch
+        git log -1
