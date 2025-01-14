@@ -1,4 +1,4 @@
-name: Security Monitor
+name: Performance Monitor
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Security Check
+    - name: Performance Check
       run: |
-        echo '=== File Permissions ==='
-        ls -la
-        echo '=== User Sessions ==='
-        who || true
-        echo '=== Open Ports ==='
-        netstat -tulpn || true
+        echo '=== System Load ==='
+        uptime
+        echo '=== Process Stats ==='
+        ps aux --sort=-%cpu | head -5
+        echo '=== Memory Usage ==='
+        free -h
