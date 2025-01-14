@@ -1,4 +1,4 @@
-name: Advanced Project Analytics
+name: Performance Analytics
 
 on: [push]
 
@@ -8,9 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Deep Analysis
+    - name: Performance Check
       run: |
-        echo '=== Repository Health ==='
-        git shortlog -sn --no-merges
-        echo '=== Code Distribution ==='
-        find . -type f -name '*.php' -exec dirname {} \; | sort | uniq -c | sort -nr
+        echo '=== Code Metrics ==='
+        find . -type f -name '*.php' -exec du -h {} \;
+        echo '=== Memory Usage ==='
+        free -m
+        echo '=== Disk Space ==='
+        df -h
