@@ -8,9 +8,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Code Analysis
+    - name: Setup Environment
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        
+    - name: Code Quality Check
       run: |
-        echo '=== Project Overview ==='
-        find . -maxdepth 2 -type d
-        echo '=== File Types ==='
-        find . -type f | grep -E '\.(php|json|yml)$' | sort
+        echo '=== Code Structure ==='
+        find . -name '*.php' -type f | wc -l
+        echo '=== Dependencies ==='
+        composer validate || true
+        echo '=== Quality Metrics ==='
+        git diff --stat
