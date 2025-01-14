@@ -1,4 +1,4 @@
-name: Performance Monitor
+name: Application Monitor
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Performance Check
+    - name: App Analysis
       run: |
-        echo '=== System Load ==='
-        uptime
-        echo '=== Process Stats ==='
-        ps aux --sort=-%cpu | head -5
-        echo '=== Memory Usage ==='
-        free -h
+        echo '=== Code Stats ==='
+        find . -type f -name '*.php' | wc -l
+        echo '=== Git History ==='
+        git log --oneline -5
+        echo '=== Project Size ==='
+        du -sh .
