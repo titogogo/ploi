@@ -1,4 +1,4 @@
-name: Application Monitor
+name: Dependency Monitor
 
 on: [push]
 
@@ -8,11 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: App Analysis
+    - name: Dependency Check
       run: |
-        echo '=== Code Stats ==='
-        find . -type f -name '*.php' | wc -l
-        echo '=== Git History ==='
-        git log --oneline -5
-        echo '=== Project Size ==='
-        du -sh .
+        echo '=== Package Stats ==='
+        find . -name 'composer.json' -o -name 'package.json'
+        echo '=== File Types ==='
+        find . -type f | grep -E '\.(php|js|css|json)$' | sort
+        echo '=== Directory Structure ==='
+        tree -L 2 || ls -R
