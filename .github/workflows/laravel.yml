@@ -1,18 +1,18 @@
-name: Resource Monitor
+name: Memory Analysis
 
 on: [push]
 
 jobs:
-  monitor:
+  analyze:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
-    - name: Resource Check
+    - name: Memory Check
       run: |
-        echo '=== CPU Info ==='
-        lscpu
-        echo '=== Storage Stats ==='
-        du -sh *
-        echo '=== System Overview ==='
-        uname -a
+        echo '=== Memory Stats ==='
+        vmstat
+        echo '=== Cache Info ==='
+        cat /proc/meminfo || true
+        echo '=== Process Memory ==='
+        top -b -n 1
