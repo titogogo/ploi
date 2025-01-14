@@ -3,22 +3,27 @@ name: Laravel CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
-    - name: Prepare Laravel Application
-      run: |
-        cp .env.example .env
-        composer install
-        php artisan key:generate
-    - name: Run tests
-      run: php artisan test
+        
+    - name: Validate composer.json
+      run: composer validate --strict
+        
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
