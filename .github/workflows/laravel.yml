@@ -1,4 +1,4 @@
-name: Project Analytics
+name: Advanced Project Analytics
 
 on: [push]
 
@@ -8,16 +8,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Setup Environment
+    - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
+        tools: phpmd, phpcpd
         
-    - name: Code Quality Check
+    - name: Advanced Analysis
       run: |
-        echo '=== Code Structure ==='
-        find . -name '*.php' -type f | wc -l
-        echo '=== Dependencies ==='
-        composer validate || true
-        echo '=== Quality Metrics ==='
-        git diff --stat
+        echo '=== Code Metrics ==='
+        find . -name '*.php' -type f -exec wc -l {} \;
+        echo '=== Security Check ==='
+        composer audit || true
+        echo '=== Performance Stats ==='
+        git rev-list --count HEAD
